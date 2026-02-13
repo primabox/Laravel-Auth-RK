@@ -45,4 +45,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function posts()
+    {
+        //uživatel ma tolik příspěvku
+        return $this->hasMany(Post::class);
+    }
+
+    public function user()
+    {
+        //příspěvek patří jednomu uživateli
+        return $this->belongsTo(User::class);
+    }
 }
